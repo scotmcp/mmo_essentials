@@ -133,9 +133,9 @@ class unpack:
 		if integer:
 			while integer > 0:
 				if reverse:
-					array.append(integer &0x07)
+					array.append(integer &0x0f)
 				else:
-					array.push_front(integer &0x07)
+					array.push_front(integer &0x0f)
 				integer = integer >> 3
 		return array
 		
