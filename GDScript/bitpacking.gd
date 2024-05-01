@@ -1,5 +1,5 @@
 class_name BittyBytes
-## Pack and unpack arrays to and from integars
+## Pack and unpack arrays to and from integers
 ##
 ## BittyBytes is a base class of functions used to pack and unpack arrays of numeric
 ## values into their smallest possible form, bits. This is especially desirable
