@@ -33,9 +33,9 @@ class pack:
 	## packed into a single int is 64.
 	func bools(array : Array) -> int:
 		var buffer : int = 0
-		for state in array:
+		for element in array:
 			buffer = buffer << 1
-			buffer += state
+			buffer += element
 		return buffer
 
 
@@ -43,9 +43,9 @@ class pack:
 	## that can be stored in an int is 32.
 	func triplets(array : Array) -> int:
 		var buffer : int = 0
-		for state in array:
+		for element in array:
 			buffer = buffer << 2
-			buffer += state
+			buffer += element
 		return buffer
 		
 		
@@ -53,27 +53,27 @@ class pack:
 	## that can be stored in an int is 21.
 	func octets(array : Array) -> int:
 		var buffer : int = 0
-		for state in array:
+		for element in array:
 			buffer = buffer << 3
-			buffer += state
+			buffer += element
 		return buffer
 
 	## Packs an array of nibbles (0 to 15) and returns an integer. The maximum number of octets
 	## that can be stored in an int is 16.
 	func nibbles(array : Array) -> int:
 		var buffer : int = 0
-		for state in array:
+		for element in array:
 			buffer = buffer << 4
-			buffer += state
+			buffer += element
 		return buffer
 		
 	## Packs an array of bytes (0 to 255) and returns an integer. The maximum number of octets
 	## that can be stored in an int is 8.
 	func byte(array : Array) -> int:
 		var buffer : int = 0
-		for state in array:
+		for element in array:
 			buffer = buffer << 8
-			buffer += state
+			buffer += element
 		return buffer
 		
 		
@@ -140,7 +140,7 @@ class unpack:
 		return array
 		
 	## @experimental
-	## Use at your own risk, this is a function in development and testing.
+	## Use at your own risk, this function is still in development and testing.
 	func unpackvarious(byte : int, bits_per_element : int, num_elements : int, lifo : bool) -> Array:
 		# Generate a mask with the correct number of bits per element.  For example, 0x111 for 3 bits per element.
 		var mask = (0x01 << bits_per_element) - 1
