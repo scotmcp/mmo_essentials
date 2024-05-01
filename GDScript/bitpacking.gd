@@ -21,7 +21,7 @@ class_name BittyBytes
 ## (ex. all booleans or all octets) and pack them into an integer. You can store
 ## smaller that the defined value, but this will create leading zeros.
 ## (example. using octets to store a boolean will result in 3 bits used to store the
-## value 001) However this is better than using an entire 64 integer and
+## value 001) However this is better than using an entire 64 bit integer and
 ## associated additional 15 to 20 bytes network overhead for each integer variable.
 ## These packed integers are normally unpacked using the associated [BittyBytes.unpack] functions.
 class pack: 
@@ -29,7 +29,7 @@ class pack:
 	## The source array containing the values to pack.
 	var array : Array[int] = [0]
 
-	## Pack an array of booleans (0 or 1) to an int. The maximum number of bools that can be
+	## Packs an array of booleans (0 or 1) and returns an integer. The maximum number of bools that can be
 	## packed into a single int is 64.
 	func bools(array : Array) -> int:
 		var buffer : int = 0
@@ -39,7 +39,7 @@ class pack:
 		return buffer
 
 
-	## Pack triplets (0 to 2) into an array of triplets. The maximum number of triplets
+	## Packs an array of triplets (0 to 2) and returns an integer. The maximum number of triplets
 	## that can be stored in an int is 32.
 	func triplets(array : Array) -> int:
 		var buffer : int = 0
@@ -49,7 +49,7 @@ class pack:
 		return buffer
 		
 		
-	## Pack octets (0 to 7) into an array of octets. The maximum number of octets
+	## Packs an array of octets (0 to 7) and returns an integer. The maximum number of octets
 	## that can be stored in an int is 21.
 	func octets(array : Array) -> int:
 		var buffer : int = 0
@@ -58,7 +58,7 @@ class pack:
 			buffer += state
 		return buffer
 
-	## Pack nibbles (0 to 15) into an array of nibbles. The maximum number of octets
+	## Packs an array of nibbles (0 to 15) and returns an integer. The maximum number of octets
 	## that can be stored in an int is 16.
 	func nibbles(array : Array) -> int:
 		var buffer : int = 0
@@ -67,7 +67,7 @@ class pack:
 			buffer += state
 		return buffer
 		
-	## Pack byte (0 to 255) into an array of byte sized integers. The maximum number of octets
+	## Packs an array of bytes (0 to 255) and returns an integer. The maximum number of octets
 	## that can be stored in an int is 8.
 	func byte(array : Array) -> int:
 		var buffer : int = 0
