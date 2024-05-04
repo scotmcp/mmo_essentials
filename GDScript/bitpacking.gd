@@ -9,7 +9,7 @@ class_name BittyBytes
 ## of overhead for *each* variable to "address" the variable inside the network
 ## datagram. Additionally, a boolean (true or false) is still considered an integer
 ## and requires the entire 64 bit word length to be stored or processed.
-## By converting large groups of numeric variables into one single integar,
+## By converting large groups of numeric variables into one single integer,
 ## eliminating the waste of lots and lots of uneeded leading zeros per boolean we can we can minimize 
 ## the amount of network datagram overhead needed while constantly streaming large numbers of
 ## tiny pieces of information in both directions. This is most beneficial for multiplayer games that
@@ -23,9 +23,9 @@ class_name BittyBytes
 func pack(array : Array[int], bit_length : int = 1) -> int:
 	# Initialize buffer with a single starting bit = 1 to tell unpack() when to stop
 	var buffer : int = 1
-	for element in array:
+	for value in array:
 		buffer = buffer << bit_length
-		buffer += element
+		buffer += value
 	return buffer
 
 
