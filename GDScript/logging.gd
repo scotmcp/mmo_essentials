@@ -1,4 +1,4 @@
-extends Node
+class_name Logging extends Node
 const DEBUG : int = 2
 
 var file = FileAccess.open("res://log/server-logs_" + str(Time.get_datetime_string_from_system()) + ".log", FileAccess.WRITE)
